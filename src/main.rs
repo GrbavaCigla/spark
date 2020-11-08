@@ -33,7 +33,12 @@ fn main() {
         None => ','
     };
 
-    let numbers: Vec<i32> = args.numbers.split(delim).map(|s| s.parse().expect("Expected a number!")).collect();
+    let numbers: Vec<i32> = args.numbers.split(delim)
+    .map(|s| s.parse()
+    .unwrap_or_else(|_| {
+        eprintln!("Expected a number!");
+        std::process::exit(1)
+    })).collect();
 
 
     let min = match args.min{
@@ -48,7 +53,10 @@ fn main() {
         Some(max) => max,
         None => match numbers.iter().max(){
             Some(max) => *max,
-            None => panic!("Could not find max value. Report a bug at https://github.com/GrbavaCigla/spark")
+            None => {
+                eprintln!("Could not find max value. Report a bug at https://github.com/GrbavaCigla/spark");
+                std::process::exit(1);
+            }
         }
     };
 
