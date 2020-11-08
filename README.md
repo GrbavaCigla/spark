@@ -1,4 +1,4 @@
-# spark
+# spark ![Rust](https://github.com/GrbavaCigla/spark/workflows/Rust/badge.svg)
 Faster and feature rich implementation of spark.sh made in rust
 
 # Usage
