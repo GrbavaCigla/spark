@@ -33,14 +33,14 @@ fn main() {
         None => ','
     };
 
-    let numbers: Vec<i32> = args.numbers.split(delim).map(|s| s.parse().expect("Expected number!")).collect();
+    let numbers: Vec<i32> = args.numbers.split(delim).map(|s| s.parse().expect("Expected a number!")).collect();
 
 
     let min = match args.min{
         Some(min) => min,
         None => match numbers.iter().min(){
             Some(min) => *min,
-            None => panic!("D")
+            None => panic!("Could not find min value. Report a bug at https://github.com/GrbavaCigla/spark")
         }
     };
 
@@ -48,7 +48,7 @@ fn main() {
         Some(max) => max,
         None => match numbers.iter().max(){
             Some(max) => *max,
-            None => panic!("D")
+            None => panic!("Could not find max value. Report a bug at https://github.com/GrbavaCigla/spark")
         }
     };
 
@@ -56,7 +56,7 @@ fn main() {
         let bar = get_bar(&bars, min as f32, max as f32, *i as f32);
         let bar = match bar {
             Some(bar) => bar,
-            None => {panic!()}
+            None => panic!("Could value is smaller than min value or bigger than max value. Report a bug at https://github.com/GrbavaCigla/spark")
         };
         print!("{}", bar);
     }
