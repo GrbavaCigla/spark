@@ -19,7 +19,7 @@ fn get_bar(bars: &[char], min: f32, max: f32, value: f32) -> Option<char> {
         return None;
     }
 
-    let index =(value - min) * (7_f32 - 0_f32) / (max - min) + 0_f32;
+    let index =(value - min) * 7_f32 / (max - min);
     Some(bars[index.round() as usize])
 }
 
