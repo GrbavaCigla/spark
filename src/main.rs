@@ -64,7 +64,7 @@ fn main() {
         let bar = get_bar(&bars, min as f32, max as f32, *i as f32);
         let bar = match bar {
             Some(bar) => bar,
-            None => panic!("Could value is smaller than min value or bigger than max value. Report a bug at https://github.com/GrbavaCigla/spark")
+            None => panic!("Value is smaller than min value or bigger than max value. Report a bug at https://github.com/GrbavaCigla/spark")
         };
         print!("{}", bar);
     }
